@@ -21,6 +21,14 @@ export default function (kibana) {
     // The init method will be executed when the Kibana server starts and loads
     // this plugin. It is used to set up everything that you need.
     init(server, options) {
+      server.route({
+         path: '/api/elasticsearch_status/index/{name}',
+         method: 'GET',
+         handler(req, reply) {
+    // more to come here in the next step
+         reply("Hello World");
+  }
+});
       // Just call the api module that we imported above (the server/routes.js file)
       // and pass the server to it, so it can register several API interfaces at the server.
       api(server);
